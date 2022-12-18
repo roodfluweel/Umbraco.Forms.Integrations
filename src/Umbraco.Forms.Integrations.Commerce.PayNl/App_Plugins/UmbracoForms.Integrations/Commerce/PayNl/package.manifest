@@ -1,0 +1,13 @@
+﻿{
+  "name": "Umbraco.Forms.Integrations.Commerce.payNl",
+  "version": "1.0.0",
+  "allowPackageTelemetry": true,
+  "javascript": [
+    "~/App_Plugins/UmbracoForms.Integrations/Commerce/PayNl/customer-details-mapper.controller.js",
+    "~/App_Plugins/UmbracoForms.Integrations/Commerce/PayNl/currency.controller.js",
+    "~/App_Plugins/UmbracoForms.Integrations/Commerce/PayNl/payNl.resource.js",
+    "~/App_Plugins/UmbracoForms.Integrations/Commerce/PayNl/payNl.service.js",
+    "~/App_Plugins/UmbracoForms.Integrations/Commerce/PayNl/field-picker.controller.js"
+  ],
+  "css": [ "" ]
+}

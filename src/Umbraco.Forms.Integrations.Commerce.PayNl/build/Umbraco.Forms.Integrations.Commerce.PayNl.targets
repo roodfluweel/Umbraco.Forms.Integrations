@@ -1,0 +1,27 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+	<PropertyGroup>
+		<PayNlPropertyEditorFiles>$(MSBuildThisFileDirectory)..\App_Plugins\UmbracoForms.Integrations\Commerce\PayNl\**\*.*</PayNlPropertyEditorFiles>
+	</PropertyGroup>
+
+	<Target Name="CopyPayNlPropertyEditorAssets" BeforeTargets="Build">
+		<ItemGroup>
+			<EMerchantPayPropertyEditorFiles Include="$(PayNlPropertyEditorFiles)" />
+		</ItemGroup>
+		<Message Text="Copying payNl Property Editor files: $(PayNlPropertyEditorFiles) - #@(PayNlPropertyEditorFiles->Count()) files" Importance="high" />
+		<Copy
+			SourceFiles="@(PayNlPropertyEditorFiles)"
+			DestinationFiles="@(PayNlPropertyEditorFiles->'$(MSBuildProjectDirectory)\App_Plugins\UmbracoForms.Integrations\Commerce\PayNl\%(RecursiveDir)%(Filename)%(Extension)')"
+			SkipUnchangedFiles="true" />
+
+	</Target>
+
+	<Target Name="ClearPayNlPropertyEditorAssets" BeforeTargets="Clean">
+		<ItemGroup>
+			<PayNlPropertyEditorDir Include="$(MSBuildProjectDirectory)\App_Plugins\UmbracoForms.Integrations\Commerce\PayNl\" />
+		</ItemGroup>
+		<Message Text="Clear payNl Property Editor data" Importance="high" />
+		<RemoveDir Directories="@(PayNlPropertyEditorDir)"  />
+	</Target>
+
+</Project>
